@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 
 import Header from "@/components/templates/header/Header";
+import Loading from "./loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +44,6 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <div className="mx-auto flex min-h-screen w-full max-w-384 flex-col px-4 sm:px-6 lg:px-8 xl:px-10">
             <Header />
-
             <main className="flex-1">{children}</main>
           </div>
         </ThemeProvider>
