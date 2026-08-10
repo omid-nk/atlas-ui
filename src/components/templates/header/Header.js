@@ -1,18 +1,11 @@
-"use client";
-
-import { useState } from "react";
-
 import Image from "next/image";
 import Link from "next/link";
 
-import SearchbarBtn from "./components/SearchbarBtn";
 import ThemeChangerBtn from "./components/ThemeChangerBtn";
-import SearchDialog from "./components/SearchDialog";
 import GithubBtn from "./components/GithubBtn";
+import MobileMenu from "./components/MobileMenu";
 
 export default function Header() {
-  const [searchOpen, setSearchOpen] = useState(false);
-
   const navItems = [
     {
       id: 1,
@@ -45,10 +38,7 @@ export default function Header() {
     <>
       <header className="border-border flex items-center justify-between border-b py-4">
         <nav className="flex items-center gap-5">
-          <Link
-            href="/"
-            className="flex size-10 items-center justify-center rounded-xl transition-transform hover:scale-105"
-          >
+          <Link href="/" className="flex size-10 items-center justify-center">
             <Image
               src="/images/logo/logo.png"
               alt="Atlas UI"
@@ -56,6 +46,7 @@ export default function Header() {
               height={80}
             />
           </Link>
+          <MobileMenu />
 
           <ul className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
@@ -72,15 +63,10 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <SearchbarBtn onClick={() => setSearchOpen(true)} />
-
           <GithubBtn />
-
           <ThemeChangerBtn />
         </div>
       </header>
-
-      <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }

@@ -3,7 +3,6 @@ import "@/styles/globals.css";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 
 import Header from "@/components/templates/header/Header";
-import Loading from "./loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +37,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="bg-background text-foreground selection:bg-primary min-h-screen font-sans selection:text-white">
